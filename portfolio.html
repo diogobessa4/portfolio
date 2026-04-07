@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diogo Bessa Almeida França de Oliveira — Desenvolvedor Web</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #1a1a1a;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --text: #f0ede8;
+    --muted: #888;
+    --accent: #c8f564;
+    --accent-dark: #a8d444;
+    --saas: #7f77dd;
+    --site: #1d9e75;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .container { max-width: 700px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+
+  /* HEADER */
+  header {
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4rem;
+  }
+  .header-inner { display: flex; flex-direction: column; gap: 1.5rem; }
+  .name-block { display: flex; flex-direction: column; gap: 4px; }
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .name em { font-style: italic; color: var(--accent); }
+  .role {
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 14px;
+    border-radius: 99px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .tag:hover { border-color: var(--border-hover); color: var(--text); }
+  .tag.accent { border-color: rgba(200,245,100,0.3); color: var(--accent); }
+
+  /* SECTION */
+  section { margin-bottom: 4rem; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+
+  /* PROJECTS */
+  .projects { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .proj {
+    background: var(--surface);
+    padding: 1.5rem;
+    transition: background 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .proj:hover { background: var(--surface2); }
+  .proj-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .proj-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+  .proj-badge {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge-saas { background: rgba(127,119,221,0.15); color: #afa9ec; border: 1px solid rgba(127,119,221,0.2); }
+  .badge-site { background: rgba(29,158,117,0.15); color: #5dcaa5; border: 1px solid rgba(29,158,117,0.2); }
+  .badge-ecom { background: rgba(239,159,39,0.15); color: #fac775; border: 1px solid rgba(239,159,39,0.2); }
+  .proj-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .proj-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s;
+  }
+  .proj-link:hover { opacity: 0.7; }
+  .proj-link::after { content: '↗'; font-size: 11px; }
+
+  /* CONTACT FORM */
+  .form-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .form-intro { margin-bottom: 1.5rem; }
+  .form-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .form-sub { font-size: 13px; color: var(--muted); }
+  .fields { display: flex; flex-direction: column; gap: 12px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .field input,
+  .field textarea,
+  .field select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus { border-color: var(--border-hover); }
+  .field select option { background: var(--surface2); }
+  .field textarea { height: 100px; resize: vertical; }
+  .submit-btn {
+    margin-top: 8px;
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    color: #0a0a0a;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .submit-btn:hover { background: var(--accent-dark); }
+  .submit-btn:active { transform: scale(0.99); }
+  .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .feedback {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .feedback.success { background: rgba(29,158,117,0.15); color: #5dcaa5; border: 1px solid rgba(29,158,117,0.2); }
+  .feedback.error { background: rgba(226,75,74,0.15); color: #f09595; border: 1px solid rgba(226,75,74,0.2); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 3rem;
+    text-align: center;
+  }
+  footer p { font-size: 12px; color: var(--muted); }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fadeup { animation: fadeUp 0.6s ease both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+
+  @media (max-width: 520px) {
+    .field-row { grid-template-columns: 1fr; }
+    header { padding: 3rem 0 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="fadeup">
+    <div class="header-inner">
+      <div class="name-block">
+        <h1 class="name">Diogo Bessa<br><em>Almeida França</em><br>de Oliveira</h1>
+        <p class="role">Desenvolvedor Web · Sites, SaaS & IA</p>
+      </div>
+      <div class="tags">
+        <span class="tag accent">IA integrada</span>
+        <span class="tag">React</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Python</span>
+        <span class="tag">C#</span>
+        <span class="tag">Automação</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="fadeup delay-1">
+    <div class="section-header">
+      <span class="section-label">Projetos</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects">
+
+      <div class="proj">
+        <div class="proj-top">
+          <p class="proj-name">Beauty Control</p>
+          <span class="proj-badge badge-saas">SaaS</span>
+        </div>
+        <p class="proj-desc">Plataforma para profissionais de estética e beleza gerenciarem clientes, agendamentos e serviços. Em produção e com novas features sendo lançadas continuamente.</p>
+        <a class="proj-link" href="https://beautycontrolb.vercel.app/" target="_blank">Ver projeto</a>
+      </div>
+
+      <div class="proj">
+        <div class="proj-top">
+          <p class="proj-name">Multiverso</p>
+          <span class="proj-badge badge-ecom">E-commerce</span>
+        </div>
+        <p class="proj-desc">Site para loja geek com painel admin para gestão de produtos e sistema de reservas para os clientes. Autenticação segura e deploy na Vercel.</p>
+        <a class="proj-link" href="https://multiverso-v3.vercel.app/" target="_blank">Ver projeto</a>
+      </div>
+
+      <div class="proj">
+        <div class="proj-top">
+          <p class="proj-name">Clube da Fonte</p>
+          <span class="proj-badge badge-saas">SaaS</span>
+        </div>
+        <p class="proj-desc">Plataforma de ofertas de produtos de marketplaces para usuários de todo o Brasil. Em atualização com novas funcionalidades.</p>
+        <a class="proj-link" href="https://clube-da-fonte.vercel.app/" target="_blank">Ver projeto</a>
+      </div>
+
+      <div class="proj">
+        <div class="proj-top">
+          <p class="proj-name">Clínica Dr. Luiz Mendonça</p>
+          <span class="proj-badge badge-site">Institucional</span>
+        </div>
+        <p class="proj-desc">Site de autoridade para médico especializado em emagrecimento, com foco em construção de imagem profissional e CTA para agendamento de consultas.</p>
+        <a class="proj-link" href="https://dr-luiz-mendonca.vercel.app/" target="_blank">Ver projeto</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="fadeup delay-2">
+    <div class="section-header">
+      <span class="section-label">Contato</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="form-wrap">
+      <div class="form-intro">
+        <p class="form-title">Tem um projeto em mente?</p>
+        <p class="form-sub">Me conta o que você precisa — respondo em até 24h.</p>
+      </div>
+      <div class="fields">
+        <div class="field-row">
+          <div class="field">
+            <label>Nome</label>
+            <input type="text" id="f-nome" placeholder="Seu nome" />
+          </div>
+          <div class="field">
+            <label>E-mail</label>
+            <input type="email" id="f-email" placeholder="seu@email.com" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Tipo de projeto</label>
+          <select id="f-tipo">
+            <option value="">Selecione...</option>
+            <option>Site institucional</option>
+            <option>Loja / e-commerce</option>
+            <option>SaaS / sistema web</option>
+            <option>Automação com IA</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Mensagem</label>
+          <textarea id="f-msg" placeholder="O que você precisa? Qual o prazo ideal? Alguma referência?"></textarea>
+        </div>
+        <button class="submit-btn" id="submit-btn" onclick="enviarFormulario()">Enviar mensagem</button>
+        <div class="feedback" id="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="fadeup delay-3">
+    <p>Diogo Bessa Almeida França de Oliveira · <a href="https://instagram.com/diogobessa.tech" target="_blank">@diogobessa.tech</a></p>
+  </footer>
+
+</div>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  /*
+  ============================================================
+  CONFIGURAÇÃO EMAILJS — preencha os 3 valores abaixo
+  ============================================================
+  Siga o passo a passo no README para obter cada valor.
+  ============================================================
+  */
+  const EMAILJS_PUBLIC_KEY  = "9lNlIhua4CWify5fI";
+  const EMAILJS_SERVICE_ID  = "service_qwgodyh";
+  const EMAILJS_TEMPLATE_ID = "template_mfok0hc";
+
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+  async function enviarFormulario() {
+    const nome  = document.getElementById('f-nome').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const tipo  = document.getElementById('f-tipo').value;
+    const msg   = document.getElementById('f-msg').value.trim();
+    const btn   = document.getElementById('submit-btn');
+    const fb    = document.getElementById('feedback');
+
+    if (!nome || !email || !msg) {
+      fb.textContent = 'Preencha nome, e-mail e mensagem.';
+      fb.className = 'feedback error';
+      fb.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    fb.style.display = 'none';
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name:    nome,
+        from_email:   email,
+        project_type: tipo || 'Não informado',
+        message:      msg,
+      });
+      fb.textContent = 'Mensagem enviada! Te respondo em breve.';
+      fb.className = 'feedback success';
+      fb.style.display = 'block';
+      document.getElementById('f-nome').value  = '';
+      document.getElementById('f-email').value = '';
+      document.getElementById('f-tipo').value  = '';
+      document.getElementById('f-msg').value   = '';
+    } catch (err) {
+      fb.textContent = 'Erro ao enviar. Tente novamente ou me chame no Instagram.';
+      fb.className = 'feedback error';
+      fb.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensagem';
+    }
+  }
+</script>
+
+</body>
+</html>
