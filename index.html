@@ -124,6 +124,59 @@
     .proj-details { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; padding-top: 10px; border-top: 1px solid var(--border); }
     .proj-detail { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--muted); line-height: 1.5; }
     .proj-detail::before { content: '—'; color: rgba(255,255,255,0.2); flex-shrink: 0; }
+  
+    /* PROJ PREVIEW */
+    .proj-body { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .proj-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+    .proj-preview-wrap {
+      flex-shrink: 0;
+      width: 200px;
+      height: 140px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      background: var(--surface2);
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+    .proj-preview-wrap iframe {
+      width: 667px;
+      height: 467px;
+      transform: scale(0.3);
+      transform-origin: top left;
+      pointer-events: none;
+      border: none;
+      display: block;
+    }
+    .proj-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s;
+    }
+    .proj-preview-overlay span {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: transparent;
+      transition: color 0.25s;
+      background: var(--accent);
+      color: transparent;
+      padding: 5px 12px;
+      border-radius: 99px;
+    }
+    .proj-preview-wrap:hover .proj-preview-overlay { background: rgba(0,0,0,0.55); }
+    .proj-preview-wrap:hover .proj-preview-overlay span { color: #0a0a0a; }
+    @media (max-width: 600px) {
+      .proj-body { flex-direction: column; }
+      .proj-preview-wrap { width: 100%; height: 160px; }
+      .proj-preview-wrap iframe { width: 1000px; height: 600px; transform: scale(0.32); }
+    }
   </style>
 </head>
 <body>
@@ -168,133 +221,175 @@
             <p class="proj-name">Beauty Control</p>
             <span class="proj-badge badge-saas">SaaS</span>
           </div>
-          <p class="proj-desc">Plataforma para profissionais de estética e beleza gerenciarem clientes, agendamentos e serviços. Em produção e com novas features sendo lançadas continuamente.</p>
-          <div class="proj-details">
-            <span class="proj-detail">Autenticação de usuários com controle de acesso por perfil</span>
+          <div class="proj-body">
+            <div class="proj-info">
+              <p class="proj-desc">Plataforma para profissionais de estética e beleza gerenciarem clientes, agendamentos e serviços. Em produção e com novas features sendo lançadas continuamente.</p>
+              <div class="proj-details">
+                <span class="proj-detail">Autenticação de usuários com controle de acesso por perfil</span>
             <span class="proj-detail">Dashboard com métricas de atendimentos e faturamento</span>
             <span class="proj-detail">Sistema de agendamento e gestão de clientes</span>
-          </div>
-          <div class="proj-techs">
-            <span class="proj-tech">React</span>
+              </div>
+              <div class="proj-techs">
+                <span class="proj-tech">React</span>
             <span class="proj-tech">Vite</span>
             <span class="proj-tech">Tailwind CSS</span>
             <span class="proj-tech">Supabase</span>
             <span class="proj-tech">PostgreSQL</span>
             <span class="proj-tech">Vercel</span>
+              </div>
+              <a class="proj-link" href="https://beautycontrolb.vercel.app/" target="_blank">Ver projeto</a>
+            </div>
+            <a class="proj-preview-wrap" href="https://beautycontrolb.vercel.app/" target="_blank" tabindex="-1">
+              <iframe src="https://beautycontrolb.vercel.app/login" scrolling="no" loading="lazy" tabindex="-1"></iframe>
+              <div class="proj-preview-overlay"><span>Abrir ↗</span></div>
+            </a>
           </div>
-          <a class="proj-link" href="https://beautycontrolb.vercel.app/" target="_blank">Ver projeto</a>
         </div>
-
         <div class="proj">
           <div class="proj-top">
             <p class="proj-name">Multiverso</p>
             <span class="proj-badge badge-ecom">E-commerce</span>
           </div>
-          <p class="proj-desc">Site para loja geek com painel admin para gestão de produtos e sistema de reservas para os clientes. Autenticação segura e deploy na Vercel.</p>
-          <div class="proj-details">
-            <span class="proj-detail">API REST própria com autenticação via Bearer token</span>
+          <div class="proj-body">
+            <div class="proj-info">
+              <p class="proj-desc">Site para loja geek com painel admin para gestão de produtos e sistema de reservas para os clientes. Autenticação segura e deploy na Vercel.</p>
+              <div class="proj-details">
+                <span class="proj-detail">API REST própria com autenticação via Bearer token</span>
             <span class="proj-detail">Painel admin com dashboard, gestão de estoque e reservas</span>
             <span class="proj-detail">Sistema de reservas com busca por WhatsApp e código</span>
-          </div>
-          <div class="proj-techs">
-            <span class="proj-tech">HTML</span>
+              </div>
+              <div class="proj-techs">
+                <span class="proj-tech">HTML</span>
             <span class="proj-tech">CSS</span>
             <span class="proj-tech">JavaScript</span>
             <span class="proj-tech">Node.js</span>
             <span class="proj-tech">Express</span>
             <span class="proj-tech">SQLite</span>
             <span class="proj-tech">Vercel</span>
+              </div>
+              <a class="proj-link" href="https://multiverso-v3.vercel.app/" target="_blank">Ver projeto</a>
+            </div>
+            <a class="proj-preview-wrap" href="https://multiverso-v3.vercel.app/" target="_blank" tabindex="-1">
+              <iframe src="https://multiverso-v3.vercel.app/" scrolling="no" loading="lazy" tabindex="-1"></iframe>
+              <div class="proj-preview-overlay"><span>Abrir ↗</span></div>
+            </a>
           </div>
-          <a class="proj-link" href="https://multiverso-v3.vercel.app/" target="_blank">Ver projeto</a>
         </div>
-
         <div class="proj">
           <div class="proj-top">
             <p class="proj-name">Clube da Fonte</p>
             <span class="proj-badge badge-saas">SaaS</span>
           </div>
-          <p class="proj-desc">Plataforma de ofertas de produtos de marketplaces para usuários de todo o Brasil. Em atualização com novas funcionalidades.</p>
-          <div class="proj-details">
-            <span class="proj-detail">Autenticação com sistema de allowlist via Supabase RLS</span>
+          <div class="proj-body">
+            <div class="proj-info">
+              <p class="proj-desc">Plataforma de ofertas de produtos de marketplaces para usuários de todo o Brasil. Em atualização com novas funcionalidades.</p>
+              <div class="proj-details">
+                <span class="proj-detail">Autenticação com sistema de allowlist via Supabase RLS</span>
             <span class="proj-detail">Arquitetura SEO com rotas otimizadas por categoria</span>
             <span class="proj-detail">Sistema de afiliados para monetização de ofertas</span>
-          </div>
-          <div class="proj-techs">
-            <span class="proj-tech">Next.js</span>
+              </div>
+              <div class="proj-techs">
+                <span class="proj-tech">Next.js</span>
             <span class="proj-tech">TypeScript</span>
             <span class="proj-tech">Tailwind CSS</span>
             <span class="proj-tech">Supabase</span>
             <span class="proj-tech">PostgreSQL</span>
             <span class="proj-tech">Vercel</span>
+              </div>
+              <a class="proj-link" href="https://clube-da-fonte.vercel.app/" target="_blank">Ver projeto</a>
+            </div>
+            <a class="proj-preview-wrap" href="https://clube-da-fonte.vercel.app/" target="_blank" tabindex="-1">
+              <iframe src="https://clube-da-fonte.vercel.app/" scrolling="no" loading="lazy" tabindex="-1"></iframe>
+              <div class="proj-preview-overlay"><span>Abrir ↗</span></div>
+            </a>
           </div>
-          <a class="proj-link" href="https://clube-da-fonte.vercel.app/" target="_blank">Ver projeto</a>
         </div>
-
         <div class="proj">
           <div class="proj-top">
             <p class="proj-name">Clínica Dr. Luiz Mendonça</p>
             <span class="proj-badge badge-site">Institucional</span>
           </div>
-          <p class="proj-desc">Site de autoridade para médico especializado em emagrecimento, com foco em construção de imagem profissional e CTA para agendamento de consultas.</p>
-          <div class="proj-details">
-            <span class="proj-detail">Landing page com foco em conversão e CTA para agendamento</span>
+          <div class="proj-body">
+            <div class="proj-info">
+              <p class="proj-desc">Site de autoridade para médico especializado em emagrecimento, com foco em construção de imagem profissional e CTA para agendamento de consultas.</p>
+              <div class="proj-details">
+                <span class="proj-detail">Landing page com foco em conversão e CTA para agendamento</span>
             <span class="proj-detail">Design de autoridade médica com seções de especialidades</span>
             <span class="proj-detail">Otimizado para SEO local e carregamento rápido</span>
-          </div>
-          <div class="proj-techs">
-            <span class="proj-tech">HTML</span>
+              </div>
+              <div class="proj-techs">
+                <span class="proj-tech">HTML</span>
             <span class="proj-tech">CSS</span>
             <span class="proj-tech">JavaScript</span>
             <span class="proj-tech">Vercel</span>
+              </div>
+              <a class="proj-link" href="https://dr-luiz-mendonca.vercel.app/" target="_blank">Ver projeto</a>
+            </div>
+            <a class="proj-preview-wrap" href="https://dr-luiz-mendonca.vercel.app/" target="_blank" tabindex="-1">
+              <iframe src="https://dr-luiz-mendonca.vercel.app/" scrolling="no" loading="lazy" tabindex="-1"></iframe>
+              <div class="proj-preview-overlay"><span>Abrir ↗</span></div>
+            </a>
           </div>
-          <a class="proj-link" href="https://dr-luiz-mendonca.vercel.app/" target="_blank">Ver projeto</a>
         </div>
-
         <div class="proj">
           <div class="proj-top">
             <p class="proj-name">Clínica Gestão</p>
             <span class="proj-badge badge-sys">Sistema Web</span>
           </div>
-          <p class="proj-desc">Sistema web de gestão financeira para clínicas. Controle de caixa diário, registro de atendimentos por forma de pagamento, metas, histórico e relatórios mensais em um painel centralizado.</p>
-          <div class="proj-details">
-            <span class="proj-detail">Caixa diário com registro por tipo de pagamento (Pix, débito, crédito)</span>
+          <div class="proj-body">
+            <div class="proj-info">
+              <p class="proj-desc">Sistema web de gestão financeira para clínicas. Controle de caixa diário, registro de atendimentos por forma de pagamento, metas, histórico e relatórios mensais em um painel centralizado.</p>
+              <div class="proj-details">
+                <span class="proj-detail">Caixa diário com registro por tipo de pagamento (Pix, débito, crédito)</span>
             <span class="proj-detail">Painel mensal com gráficos, métricas e exportação CSV</span>
             <span class="proj-detail">Sistema de metas e histórico de evolução financeira</span>
-          </div>
-          <div class="proj-techs">
-            <span class="proj-tech">Next.js</span>
+              </div>
+              <div class="proj-techs">
+                <span class="proj-tech">Next.js</span>
             <span class="proj-tech">TypeScript</span>
             <span class="proj-tech">Tailwind CSS v4</span>
             <span class="proj-tech">Supabase</span>
             <span class="proj-tech">PostgreSQL</span>
             <span class="proj-tech">Recharts</span>
             <span class="proj-tech">Vercel</span>
+              </div>
+              <a class="proj-link" href="https://clinica-gestao.vercel.app/" target="_blank">Ver projeto</a>
+            </div>
+            <a class="proj-preview-wrap" href="https://clinica-gestao.vercel.app/" target="_blank" tabindex="-1">
+              <iframe src="https://clinica-gestao.vercel.app/login" scrolling="no" loading="lazy" tabindex="-1"></iframe>
+              <div class="proj-preview-overlay"><span>Abrir ↗</span></div>
+            </a>
           </div>
-          <a class="proj-link" href="https://clinica-gestao.vercel.app/" target="_blank">Ver projeto</a>
         </div>
-
         <div class="proj">
           <div class="proj-top">
             <p class="proj-name">Catálogo de Defeitos</p>
             <span class="proj-badge badge-sys">Sistema Web</span>
           </div>
-          <p class="proj-desc">Plataforma de inspeção industrial com autenticação de usuários e catálogo de defeitos por categoria. Desenvolvida para controle de qualidade em ambientes de manufatura.</p>
-          <div class="proj-details">
-            <span class="proj-detail">Autenticação com login e cadastro via Supabase Auth</span>
+          <div class="proj-body">
+            <div class="proj-info">
+              <p class="proj-desc">Plataforma de inspeção industrial com autenticação de usuários e catálogo de defeitos por categoria. Desenvolvida para controle de qualidade em ambientes de manufatura.</p>
+              <div class="proj-details">
+                <span class="proj-detail">Autenticação com login e cadastro via Supabase Auth</span>
             <span class="proj-detail">Catálogo de defeitos organizado por grupo e categoria</span>
             <span class="proj-detail">Interface otimizada para uso em chão de fábrica</span>
-          </div>
-          <div class="proj-techs">
-            <span class="proj-tech">HTML</span>
+              </div>
+              <div class="proj-techs">
+                <span class="proj-tech">HTML</span>
             <span class="proj-tech">CSS</span>
             <span class="proj-tech">JavaScript</span>
             <span class="proj-tech">Supabase</span>
             <span class="proj-tech">PostgreSQL</span>
             <span class="proj-tech">Vercel</span>
+              </div>
+              <a class="proj-link" href="https://inspecao-industrial-lp.vercel.app/" target="_blank">Ver projeto</a>
+            </div>
+            <a class="proj-preview-wrap" href="https://inspecao-industrial-lp.vercel.app/" target="_blank" tabindex="-1">
+              <iframe src="https://inspecao-industrial-lp.vercel.app/" scrolling="no" loading="lazy" tabindex="-1"></iframe>
+              <div class="proj-preview-overlay"><span>Abrir ↗</span></div>
+            </a>
           </div>
-          <a class="proj-link" href="https://inspecao-industrial-lp.vercel.app/" target="_blank">Ver projeto</a>
         </div>
-
       </div>
     </section>
 
