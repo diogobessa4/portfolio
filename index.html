@@ -115,6 +115,15 @@
     .logo-accents { display: flex; gap: 4px; align-items: center; margin-top: 3px; }
     .logo-acc-purple { height: 1px; width: 64px; background: #533AB7; border-radius: 1px; }
     .logo-acc-green { height: 0.5px; width: 28px; background: #1D9E75; border-radius: 0.5px; }
+  
+    /* PROJ TECHS */
+    .proj-techs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .proj-tech { font-size: 10px; font-weight: 500; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 99px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--muted); transition: color 0.2s, border-color 0.2s; }
+    .proj-tech:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    /* PROJ DETAILS */
+    .proj-details { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .proj-detail { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .proj-detail::before { content: '—'; color: rgba(255,255,255,0.2); flex-shrink: 0; }
   </style>
 </head>
 <body>
@@ -160,6 +169,19 @@
             <span class="proj-badge badge-saas">SaaS</span>
           </div>
           <p class="proj-desc">Plataforma para profissionais de estética e beleza gerenciarem clientes, agendamentos e serviços. Em produção e com novas features sendo lançadas continuamente.</p>
+          <div class="proj-details">
+            <span class="proj-detail">Autenticação de usuários com controle de acesso por perfil</span>
+            <span class="proj-detail">Dashboard com métricas de atendimentos e faturamento</span>
+            <span class="proj-detail">Sistema de agendamento e gestão de clientes</span>
+          </div>
+          <div class="proj-techs">
+            <span class="proj-tech">React</span>
+            <span class="proj-tech">Vite</span>
+            <span class="proj-tech">Tailwind CSS</span>
+            <span class="proj-tech">Supabase</span>
+            <span class="proj-tech">PostgreSQL</span>
+            <span class="proj-tech">Vercel</span>
+          </div>
           <a class="proj-link" href="https://beautycontrolb.vercel.app/" target="_blank">Ver projeto</a>
         </div>
 
@@ -169,6 +191,20 @@
             <span class="proj-badge badge-ecom">E-commerce</span>
           </div>
           <p class="proj-desc">Site para loja geek com painel admin para gestão de produtos e sistema de reservas para os clientes. Autenticação segura e deploy na Vercel.</p>
+          <div class="proj-details">
+            <span class="proj-detail">API REST própria com autenticação via Bearer token</span>
+            <span class="proj-detail">Painel admin com dashboard, gestão de estoque e reservas</span>
+            <span class="proj-detail">Sistema de reservas com busca por WhatsApp e código</span>
+          </div>
+          <div class="proj-techs">
+            <span class="proj-tech">HTML</span>
+            <span class="proj-tech">CSS</span>
+            <span class="proj-tech">JavaScript</span>
+            <span class="proj-tech">Node.js</span>
+            <span class="proj-tech">Express</span>
+            <span class="proj-tech">SQLite</span>
+            <span class="proj-tech">Vercel</span>
+          </div>
           <a class="proj-link" href="https://multiverso-v3.vercel.app/" target="_blank">Ver projeto</a>
         </div>
 
@@ -178,6 +214,19 @@
             <span class="proj-badge badge-saas">SaaS</span>
           </div>
           <p class="proj-desc">Plataforma de ofertas de produtos de marketplaces para usuários de todo o Brasil. Em atualização com novas funcionalidades.</p>
+          <div class="proj-details">
+            <span class="proj-detail">Autenticação com sistema de allowlist via Supabase RLS</span>
+            <span class="proj-detail">Arquitetura SEO com rotas otimizadas por categoria</span>
+            <span class="proj-detail">Sistema de afiliados para monetização de ofertas</span>
+          </div>
+          <div class="proj-techs">
+            <span class="proj-tech">Next.js</span>
+            <span class="proj-tech">TypeScript</span>
+            <span class="proj-tech">Tailwind CSS</span>
+            <span class="proj-tech">Supabase</span>
+            <span class="proj-tech">PostgreSQL</span>
+            <span class="proj-tech">Vercel</span>
+          </div>
           <a class="proj-link" href="https://clube-da-fonte.vercel.app/" target="_blank">Ver projeto</a>
         </div>
 
@@ -187,6 +236,17 @@
             <span class="proj-badge badge-site">Institucional</span>
           </div>
           <p class="proj-desc">Site de autoridade para médico especializado em emagrecimento, com foco em construção de imagem profissional e CTA para agendamento de consultas.</p>
+          <div class="proj-details">
+            <span class="proj-detail">Landing page com foco em conversão e CTA para agendamento</span>
+            <span class="proj-detail">Design de autoridade médica com seções de especialidades</span>
+            <span class="proj-detail">Otimizado para SEO local e carregamento rápido</span>
+          </div>
+          <div class="proj-techs">
+            <span class="proj-tech">HTML</span>
+            <span class="proj-tech">CSS</span>
+            <span class="proj-tech">JavaScript</span>
+            <span class="proj-tech">Vercel</span>
+          </div>
           <a class="proj-link" href="https://dr-luiz-mendonca.vercel.app/" target="_blank">Ver projeto</a>
         </div>
 
@@ -196,6 +256,20 @@
             <span class="proj-badge badge-sys">Sistema Web</span>
           </div>
           <p class="proj-desc">Sistema web de gestão financeira para clínicas. Controle de caixa diário, registro de atendimentos por forma de pagamento, metas, histórico e relatórios mensais em um painel centralizado.</p>
+          <div class="proj-details">
+            <span class="proj-detail">Caixa diário com registro por tipo de pagamento (Pix, débito, crédito)</span>
+            <span class="proj-detail">Painel mensal com gráficos, métricas e exportação CSV</span>
+            <span class="proj-detail">Sistema de metas e histórico de evolução financeira</span>
+          </div>
+          <div class="proj-techs">
+            <span class="proj-tech">Next.js</span>
+            <span class="proj-tech">TypeScript</span>
+            <span class="proj-tech">Tailwind CSS v4</span>
+            <span class="proj-tech">Supabase</span>
+            <span class="proj-tech">PostgreSQL</span>
+            <span class="proj-tech">Recharts</span>
+            <span class="proj-tech">Vercel</span>
+          </div>
           <a class="proj-link" href="https://clinica-gestao.vercel.app/" target="_blank">Ver projeto</a>
         </div>
 
@@ -205,6 +279,19 @@
             <span class="proj-badge badge-sys">Sistema Web</span>
           </div>
           <p class="proj-desc">Plataforma de inspeção industrial com autenticação de usuários e catálogo de defeitos por categoria. Desenvolvida para controle de qualidade em ambientes de manufatura.</p>
+          <div class="proj-details">
+            <span class="proj-detail">Autenticação com login e cadastro via Supabase Auth</span>
+            <span class="proj-detail">Catálogo de defeitos organizado por grupo e categoria</span>
+            <span class="proj-detail">Interface otimizada para uso em chão de fábrica</span>
+          </div>
+          <div class="proj-techs">
+            <span class="proj-tech">HTML</span>
+            <span class="proj-tech">CSS</span>
+            <span class="proj-tech">JavaScript</span>
+            <span class="proj-tech">Supabase</span>
+            <span class="proj-tech">PostgreSQL</span>
+            <span class="proj-tech">Vercel</span>
+          </div>
           <a class="proj-link" href="https://inspecao-industrial-lp.vercel.app/" target="_blank">Ver projeto</a>
         </div>
 
